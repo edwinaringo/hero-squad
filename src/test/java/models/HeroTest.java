@@ -19,7 +19,7 @@ class HeroTest {
     }
 
     private Hero setupNewHero() {
-        return new Hero ("Superman",24,"Flying","Kryptonite");
+        return new Hero ("Superman",24,"Flying","Kryptonite", "Male");
     }
 
     @Test

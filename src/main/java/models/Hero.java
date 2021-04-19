@@ -7,14 +7,16 @@ public class Hero {
     private int age;
     private String specialPower;
     private String weakness;
+    private String gender;
     private List<Hero> allHeroes = new ArrayList<>();
     private int heroID;
 
-    public Hero(String name, int age, String specialPower, String weakness) {
+    public Hero(String name, int age, String specialPower, String weakness, String gender) {
         this.name = name;
         this.age = age;
         this.specialPower = specialPower;
         this.weakness = weakness;
+        this.gender = gender;
         this.allHeroes.add(this);
         this.heroID = allHeroes.size();
     }
@@ -46,6 +48,9 @@ public class Hero {
     }
     public String getWeakness() {
         return weakness;
+    }
+    public String getGender() {
+        return gender;
     }
 
 }
