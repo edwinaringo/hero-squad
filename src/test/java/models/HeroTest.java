@@ -31,7 +31,13 @@ class HeroTest {
     @Test
     void testGetHeroAge() {
         Hero newHero = setupNewHero();
-        assertEquals(20, newHero.getAge());
+        assertEquals(24, newHero.getAge());
+    }
+
+    @Test
+    void testGetHeroSpecialPower() {
+        Hero newHero = setupNewHero();
+        assertEquals("Flying", newHero.getSpecialPower());
     }
 
     @AfterEach
