@@ -40,6 +40,12 @@ class HeroTest {
         assertEquals("Flying", newHero.getSpecialPower());
     }
 
+    @Test
+    void testGetHeroWeakness() {
+        Hero newHero = setupNewHero();
+        assertEquals("Kryptonite", newHero.getWeakness());
+    }
+
     @AfterEach
     void tearDown() {
     }
