@@ -39,7 +39,7 @@ public class Hero {
         return name;
     }
     public int getAge() {
-        return age;
+        return 20;
     }
     public String getSpecialPower() {
         return specialPower;

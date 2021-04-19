@@ -28,6 +28,11 @@ class HeroTest {
         assertTrue(newHero.getName() instanceof String);
     }
 
+    @Test
+    void testGetHeroAge() {
+        Hero newHero = setupNewHero();
+        assertEquals(20, newHero.getAge());
+    }
 
     @AfterEach
     void tearDown() {
