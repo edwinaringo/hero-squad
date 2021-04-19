@@ -22,6 +22,12 @@ class HeroTest {
         return new Hero ("Superman",24,"Flying","Kryptonite");
     }
 
+    @Test
+    void getHeroName() {
+        Hero newHero = setupNewHero();
+        assertEquals(newHero.getName() instanceof String);
+    }
+
     @AfterEach
     void tearDown() {
     }
