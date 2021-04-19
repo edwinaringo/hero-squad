@@ -46,6 +46,12 @@ class HeroTest {
         assertEquals("Kryptonite", newHero.getWeakness());
     }
 
+    @Test
+    void testGetHeroGender() {
+        Hero newHero = setupNewHero();
+        assertEquals("male", newHero.getGender());
+    }
+
     @AfterEach
     void tearDown() {
     }
