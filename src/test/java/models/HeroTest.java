@@ -23,10 +23,11 @@ class HeroTest {
     }
 
     @Test
-    void getHeroName() {
+    void testGetHeroName() {
         Hero newHero = setupNewHero();
-        assertEquals(newHero.getName() instanceof String);
+        assertTrue(newHero.getName() instanceof String);
     }
+
 
     @AfterEach
     void tearDown() {

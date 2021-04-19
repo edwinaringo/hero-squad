@@ -22,9 +22,31 @@ public class Hero {
     public void setSpecialPower(String specialPower) {
         this.specialPower = specialPower;
     }
+
     public void setWeakness(String weakness) {
         this.weakness = weakness;
     }
 
+    public List<Hero> getAllHeroes() {
+        return allHeroes;
+    }
+
+    public int getHeroID() {
+        return heroID;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public String getSpecialPower() {
+        return specialPower;
+    }
+    public String getWeakness() {
+        return weakness;
+    }
 
 }
+
