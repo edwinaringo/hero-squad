@@ -37,7 +37,7 @@ class HeroTest {
     @Test
     void testGetHeroSpecialPower() {
         Hero newHero = setupNewHero();
-        assertEquals("Flying", newHero.getSpecialPower());
+        assertTrue(newHero.getSpecialPower() instanceof String);
     }
 
     @Test
@@ -49,7 +49,15 @@ class HeroTest {
     @Test
     void testGetHeroGender() {
         Hero newHero = setupNewHero();
-        assertEquals("male", newHero.getGender());
+        assertEquals("Male", newHero.getGender());
+    }
+
+    @Test
+    void testAddingHero() {
+        Hero newHero = setupNewHero();
+        Hero anotherNewHero = new Hero("Flash",30,"Speed","Slowness", "male");
+        assertTrue(Hero.getAllHeroes().contains(newHero));
+        assertTrue(Hero.getAllHeroes().contains(anotherNewHero));
     }
 
     @AfterEach
