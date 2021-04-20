@@ -68,6 +68,13 @@ class HeroTest {
         assertTrue(Hero.getAllHeroes().contains(anotherNewHero));
     }
 
+    @Test
+    void searchHeroById() {
+        Hero newHero = setupNewHero();
+        Hero anotherNewHero = new Hero("Wonder woman", 23, "Strength", "Immortality", "Female");
+        assertEquals("Superman", Hero.searchHero(1).getName());
+    }
+
     @AfterEach
     void tearDown() {
         Hero.clearHeroList();

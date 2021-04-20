@@ -35,6 +35,10 @@ public class Hero {
         allHeroes.clear();
     }
 
+    public static Hero searchHero(int searchID) {
+        return allHeroes.get(searchID - 1);
+    }
+
     public int getHeroID() {
         return heroID;
     }
