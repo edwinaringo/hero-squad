@@ -30,6 +30,11 @@ public class Hero {
     public static List<Hero> getAllHeroes() {
         return allHeroes;
     }
+
+    public static void clearHeroList(){
+        allHeroes.clear();
+    }
+
     public int getHeroID() {
         return heroID;
     }
