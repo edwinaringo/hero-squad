@@ -70,5 +70,6 @@ class HeroTest {
 
     @AfterEach
     void tearDown() {
+        Hero.clearHeroList();
     }
 }
