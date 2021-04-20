@@ -19,25 +19,20 @@ public class Hero {
         this.gender = gender;
         this.allHeroes.add(this);
         this.heroID = allHeroes.size();
-
     }
 
     public void setSpecialPower(String specialPower) {
         this.specialPower = specialPower;
     }
-
     public void setWeakness(String weakness) {
         this.weakness = weakness;
     }
-
     public static List<Hero> getAllHeroes() {
         return allHeroes;
     }
-
     public int getHeroID() {
         return heroID;
     }
-
     public String getName() {
         return name;
     }
