@@ -60,6 +60,14 @@ class HeroTest {
         assertTrue(Hero.getAllHeroes().contains(anotherNewHero));
     }
 
+    @Test
+    void heroListToHaveTwoHeroes() {
+        Hero newHero = setupNewHero();
+        Hero anotherNewHero = new Hero("Hulk", 34, "Smashing", "Love", "Male");
+        assertTrue(Hero.getAllHeroes().contains(newHero));
+        assertTrue(Hero.getAllHeroes().contains(anotherNewHero));
+    }
+
     @AfterEach
     void tearDown() {
     }
