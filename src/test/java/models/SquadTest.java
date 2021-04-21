@@ -29,6 +29,16 @@ class SquadTest {
         assertTrue(squad instanceof Squad);
     }
 
+    @Test
+    void testToGetSquadName() {
+        Squad squad = setupNewSquad(setupNewHero());
+        assertTrue(squad.getName() instanceof String);
+    }
+
+    @Test
+    void name() {
+    }
+
     @AfterEach
     void tearDown() {
     }
