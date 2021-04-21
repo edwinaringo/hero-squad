@@ -71,7 +71,25 @@ public class Squad {
         }
     }
 
+    public void removeMember(Hero hero) {
+        if (isSquadFull) {
+            isSquadFull = false;
+        }
+        hero.updateSquad("");
+        heroMembers.remove(hero);
+
+        if (heroMembers.isEmpty()) {
+            selfDelete();
+        }
+    }
+
+    private void selfDelete(){
+        Squad.squadList.remove(this);
+    }
+
     public List<Hero> getMembers() {
         return heroMembers;
     }
+
+
 }
