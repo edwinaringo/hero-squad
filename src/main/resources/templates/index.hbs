@@ -8,14 +8,14 @@
 {{#partial "content"}}
     {{#if uniqueId}}
         <div id="returning-agent">
-            <h2 class="text-center"><u>Welcome back, {{uniqueId}}</u></h2>
+            <h2 class="text-center"><u>Let's get it: {{uniqueId}}</u></h2>
 
             <h4><b>Here's an overview of your registry</b></h4>
             <div class="row">
                 <div class="col-md-3"><p>Available Heroes: {{totalHeroes}}</p></div>
-                <div class="col-md-3"><p>Available Squads: {{totalSquads}}</p></div>
                 <div class="col-md-3"><p>Heroes with squads: {{squadfullHeroes}}</p></div>
                 <div class="col-md-3"><p>Heroes without squads: {{squadlessHeroes}}</p></div>
+                <div class="col-md-3"><p>Available Squads: {{totalSquads}}</p></div>
             </div>
     {{else}}
             <div id="session-form">
