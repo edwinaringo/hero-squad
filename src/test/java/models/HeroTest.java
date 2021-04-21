@@ -18,14 +18,18 @@ class HeroTest {
         assertEquals(true,newHero instanceof Hero);
     }
 
-    private Hero setupNewHero() {
-        return new Hero ("Superman",24,"Flying","Kryptonite", "Male");
-    }
-
     @Test
     void testGetHeroName() {
         Hero newHero = setupNewHero();
         assertTrue(newHero.getName() instanceof String);
+    }
+
+    private Hero setupNewHero() {
+        return new Hero ("Superman",24,"Flying","Kryptonite", "Male");
+    }
+
+    private Hero setupHero2() {
+        return new Hero ("Flash",30,"Speed","Slowness", "Male");
     }
 
     @Test
@@ -74,6 +78,16 @@ class HeroTest {
         Hero newHero = setupNewHero();
         Hero anotherNewHero = new Hero("Wonder woman", 23, "Strength", "Immortality", "Female");
         assertEquals("Superman", Hero.searchHero(1).getName());
+    }
+
+    @Test
+    void testToDeleteHero() {
+        Hero newHero = setupNewHero();
+        Hero anotherNewHero = setupHero2();
+        Hero thirdHero = new Hero("Avatar", 10, "Bending", "Emotions","Male");
+        Hero.deleteHero(anotherNewHero.getHeroID());
+        assertFalse(Hero.getAllHeroes().contains(anotherNewHero));
+        assertEquals(3, Hero.getAllHeroes().get(1).getHeroID());
     }
 
     @AfterEach
