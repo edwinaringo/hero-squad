@@ -7,7 +7,7 @@ public class Squad {
     private String squadName;
     private String cause;
     private List<Object> heroMembers = new ArrayList<>();
-    private static boolean isRegisteredHero = false;
+    private static boolean isAddedHero = false;
     private static List<Squad> squadList = new ArrayList<>();
     private int squadId;
 
@@ -16,13 +16,11 @@ public class Squad {
         this.cause = cause.trim();
         crossCheckHero(hero.getHeroID());
 
-        if(isRegisteredHero) {
+        if(isAddedHero) {
             hero.setSquadAlliance(squadName);
             heroMembers.add(hero);
             squadList.add(this);
             this.squadId = squadList.size();
-
-            System.out.println(hero.getName() + " " + hero.getSquadAlliance());
         }else{
             System.out.println("Hero not found.");
         }
@@ -32,10 +30,10 @@ public class Squad {
         return squadName;
     }
 
-
     public int getSquadId() {
         return squadId;
     }
+
     public String getCause() {
         return cause;
     }
@@ -43,7 +41,7 @@ public class Squad {
     public static void crossCheckHero(int idToCheck) {
         for (Hero hero : Hero.getAllHeroes()) {
             if (hero.getHeroID() == idToCheck) {
-                isRegisteredHero = true;
+                isAddedHero = true;
                 break;
             }
         }

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 class SquadTest {
 
     @BeforeEach
@@ -13,21 +14,17 @@ class SquadTest {
     private Hero setupNewHero() {
         return new Hero("Superman", 24, "Flying", "Kryptonite", "Male");
     }
+    private Squad setupNewSquad(Hero hero) {
+        return new Squad("Avengers", "Save the World", hero);
+    }
 
-    private Hero setupHero2() {
+    private Hero setupHero2(Hero hero) {
         return new Hero("Flash", 30, "Speed", "Slowness", "Male");
     }
 
-    private Squad setupNewSquad() {
-        return new Squad("Big men", "Conquer the world");
-    }
-
-
-
-
 
     @Test
-    void squadInstantiatesCorrectly() {
+    void squadCanGetInstantiated() {
         Squad squad = setupNewSquad(setupNewHero());
         assertTrue(squad instanceof Squad);
     }
