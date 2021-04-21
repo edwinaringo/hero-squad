@@ -4,6 +4,10 @@ import java.util.Map;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
+import java.util.ArrayList;
+
+import models.Hero;
+import models.Squad;
 
 public class App {
     public static void main(String[] args) {
