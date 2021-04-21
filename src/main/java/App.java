@@ -14,8 +14,32 @@ public class App {
         staticFileLocation("/public");
 
         get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
+            Map<String, Object> model = new HashMap<>();
+            int totalHeroes = Hero.getAllHeroes().size();
+            int totalSquads = Squad.getAllSquads().size();
+            int squadlessHeroes = 0;
+            int squadfullHeroes = 0;
+            for (Hero hero : Hero.getAllHeroes()) {
+                if (hero.getSquadList().equalsIgnoreCase("none")) {
+                    squadlessHeroes += 1;
+                } else {
+                    squadfullHeroes += 1;
+                }
+            }
+            model.put("totalHeroes", totalHeroes);
+            model.put("totalSquads", totalSquads);
+            model.put("squadlessHeroes", squadlessHeroes);
+            model.put("squadfullHeroes", squadfullHeroes);
+            model.put("uniqueId", request.session().attribute("uniqueId"));
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/success", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String uniqueId = request.queryParams("uniqueId");
+            request.session().attribute("uniqueId", uniqueId);
+            model.put("uniqueId", uniqueId);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
 
