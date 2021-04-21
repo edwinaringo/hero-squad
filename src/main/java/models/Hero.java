@@ -8,6 +8,7 @@ public class Hero {
     private String specialPower;
     private String weakness;
     private String gender;
+    private String squadList;
     private static List<Hero> allHeroes = new ArrayList<>();
     private int heroID;
 
@@ -29,6 +30,9 @@ public class Hero {
     }
     public static List<Hero> getAllHeroes() {
         return allHeroes;
+    }
+    public void setSquadAlliance(String squadList) {
+        this.squadList = squadList;
     }
 
     public static void clearHeroList(){
