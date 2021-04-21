@@ -25,6 +25,7 @@ public class Hero {
     public void setSpecialPower(String specialPower) {
         this.specialPower = specialPower;
     }
+
     public void setWeakness(String weakness) {
         this.weakness = weakness;
     }
@@ -65,5 +66,43 @@ public class Hero {
     public String getSquadList() {
         return squadList;
     }
+
+    public void updateSquad(String newSquad) {
+        this.squadList = newSquad;
+    }
+
+    public void updateName(String newName) {
+        this.name = newName;
+    }
+
+    public void updateAge(int newAge) {
+        this.age = newAge;
+    }
+
+    public void updatePower(String newSpecialPower) {
+        this.specialPower = newSpecialPower;
+    }
+
+    public void updateWeakness(String newWeakness) {
+        this.weakness = newWeakness;
+    }
+
+    public static void deleteHero(int searchID) {
+        Hero heroToDelete = searchHero(searchID);
+        if (!heroToDelete.getSquadList().equals("")) {
+            Squad currentSquad = null;
+            String currentSquadName = heroToDelete.getSquadList();
+            for (Squad squad : Squad.getAllSquads()) {
+                if (squad.getName().equalsIgnoreCase(currentSquadName)) {
+                    currentSquad = squad;
+                    break;
+                }
+            }
+            assert currentSquad != null;
+            currentSquad.removeMember(heroToDelete);
+        }
+        allHeroes.remove(searchID - 1);
+    }
+
 }
 
