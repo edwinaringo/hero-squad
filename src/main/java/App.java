@@ -41,6 +41,24 @@ public class App {
             model.put("uniqueId", uniqueId);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("uniqueId", request.session().attribute("uniqueId"));
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: each hero detail page
+        get("/heroes/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int itemId = Integer.parseInt(request.params(":id"));
+            Hero foundHero = Hero.searchHero(itemId);
+            model.put("hero", foundHero);
+            model.put("uniqueId", request.session().attribute("uniqueId"));
+            return new ModelAndView(model, "hero.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
     }
 
 }
