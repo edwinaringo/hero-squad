@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SquadTest {
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception{
     }
 
     private Hero setupNewHero() {
@@ -17,8 +17,11 @@ class SquadTest {
     private Squad setupNewSquad(Hero hero) {
         return new Squad("Avengers", "Save the World", hero);
     }
+    private Squad setupNewSquad2(Hero hero) {
+        return new Squad("Big men", "Beating bad folk", hero);
+    }
 
-    private Hero setupHero2(Hero hero) {
+    private Hero setupHero2() {
         return new Hero("Flash", 30, "Speed", "Slowness", "Male");
     }
 
@@ -41,7 +44,14 @@ class SquadTest {
         assertTrue(squad.getCause() instanceof String);
     }
 
+    @Test
+    void testToAddHeroes() {
+        Squad squad = setupNewSquad(setupNewHero());
+        squad.addMembers(setupHero2());
+        assertEquals(2, squad.getMembers().size());
+    }
+
     @AfterEach
-    void tearDown() {
+    void tearDown() throws Exception{
     }
 }

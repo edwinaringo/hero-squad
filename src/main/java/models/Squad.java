@@ -4,21 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Squad {
+    private Hero newHero;
     private String squadName;
     private String cause;
     private List<Object> heroMembers = new ArrayList<>();
     private static boolean isAddedHero = false;
+    private boolean isSquadFull =false;
     private static List<Squad> squadList = new ArrayList<>();
     private int squadId;
 
     public Squad(String name, String cause, Hero hero) {
         this.squadName = name.trim();
         this.cause = cause.trim();
+        this.newHero =  hero;
         crossCheckHero(hero.getHeroID());
 
         if(isAddedHero) {
             hero.setSquadAlliance(squadName);
-            heroMembers.add(hero);
+            heroMembers.add(newHero);
             squadList.add(this);
             this.squadId = squadList.size();
         }else{
@@ -60,5 +63,15 @@ public class Squad {
         squadList.clear();
     }
 
+    public void addMembers(Hero hero) {
+        if (heroMembers.size() >= 5) {
+            isSquadFull = true;
+        } else {
+            heroMembers.add(hero);
+        }
+    }
 
+    public List<Object> getMembers() {
+        return heroMembers;
+    }
 }

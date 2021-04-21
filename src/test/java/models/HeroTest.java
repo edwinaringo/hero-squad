@@ -52,6 +52,7 @@ class HeroTest {
         assertEquals("Male", newHero.getGender());
     }
 
+
     @Test
     void testAddingHero() {
         Hero newHero = setupNewHero();

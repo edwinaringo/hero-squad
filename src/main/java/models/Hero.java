@@ -62,7 +62,7 @@ public class Hero {
         return gender;
     }
 
-    public String getSquadAlliance() {
+    public String getSquadList() {
         return squadList;
     }
 }
