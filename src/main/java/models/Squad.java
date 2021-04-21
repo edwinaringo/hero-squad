@@ -7,7 +7,7 @@ public class Squad {
     private Hero newHero;
     private String squadName;
     private String cause;
-    private List<Object> heroMembers = new ArrayList<>();
+    private List<Hero> heroMembers = new ArrayList<>();
     private static boolean isAddedHero = false;
     private boolean isSquadFull =false;
     private static List<Squad> squadList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class Squad {
         }
     }
 
-    public List<Object> getMembers() {
+    public List<Hero> getMembers() {
         return heroMembers;
     }
 }
