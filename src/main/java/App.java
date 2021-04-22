@@ -141,7 +141,7 @@ public class App {
             Hero updateHero = Hero.searchHero(itemId);
             updateHero.updateName(request.queryParams("name"));
             updateHero.updateAge(Integer.parseInt(request.queryParams("age")));
-            updateHero.updatePower(request.queryParams("power"));
+            updateHero.updateSpecialPower(request.queryParams("power"));
             updateHero.updateWeakness(request.queryParams("weakness"));
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
