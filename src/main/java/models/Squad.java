@@ -29,6 +29,7 @@ public class Squad {
         }
     }
 
+
     public String getName() {
         return squadName;
     }
