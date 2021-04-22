@@ -11,15 +11,25 @@ public class Hero {
     private String squadList;
     private static List<Hero> allHeroes = new ArrayList<>();
     private int heroID;
+    private static boolean same = false;
 
     public Hero(String name, int age, String specialPower, String weakness, String gender) {
-        this.name = name;
+        this.name = name.trim();
         this.age = age;
-        this.specialPower = specialPower;
-        this.weakness = weakness;
-        this.gender = gender;
-        this.allHeroes.add(this);
-        this.heroID = allHeroes.size();
+        this.specialPower = specialPower.trim();
+        this.weakness = weakness.trim();
+        this.gender = gender.trim();
+        findSameHero(this);
+
+        if (same) {
+            System.out.println("Duplicate Hero realised...");
+        } else{
+            allHeroes.add(this);
+            this.heroID = allHeroes.size();
+            this.squadList= "";
+        }
+
+
     }
 
     public void setSpecialPower(String specialPower) {
@@ -102,6 +112,20 @@ public class Hero {
             currentSquad.removeMember(heroToDelete);
         }
         allHeroes.remove(searchID - 1);
+    }
+
+    private static void findSameHero(Hero newInsertion) {
+        for (Hero hero : allHeroes) {
+            if (newInsertion.name.equalsIgnoreCase(hero.name) &&
+                    newInsertion.specialPower.equalsIgnoreCase(hero.specialPower) &&
+                    newInsertion.weakness.equalsIgnoreCase(hero.weakness)) {
+                same = true;
+                break;
+            } else if (newInsertion.name.equalsIgnoreCase(hero.name)) {
+                same = true;
+                break;
+            }
+        }
     }
 
 }
