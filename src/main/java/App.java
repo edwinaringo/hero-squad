@@ -5,6 +5,7 @@ import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import models.Hero;
 import models.Squad;
@@ -20,7 +21,7 @@ public class App {
             int squadlessHeroes = 0;
             int squadfullHeroes = 0;
             for (Hero hero : Hero.getAllHeroes()) {
-                if (hero.getSquadList().equalsIgnoreCase("none")) {
+                if (hero.getSquadList().equals("none")) {
                     squadlessHeroes += 1;
                 } else {
                     squadfullHeroes += 1;
@@ -42,10 +43,29 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/heroes", (request, response) -> {
+        get("/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("uniqueId", request.session().attribute("uniqueId"));
             return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get hero details route
+        post("/heroes/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            int age = Integer.parseInt(request.queryParams("age"));
+            String specialPower = request.queryParams("powers");
+            String weakness = request.queryParams("weakness");
+            String gender = request.queryParams("gender");
+
+            Hero newHero = new Hero(name, age, specialPower, weakness,gender);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("uniqueId", request.session().attribute("uniqueId"));
+            return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: each hero detail page
@@ -58,6 +78,12 @@ public class App {
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/squads/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int itemId = Integer.parseInt(request.params(":id"));
+            model.put("uniqueId", request.session().attribute("uniqueId"));
+            return new ModelAndView(model, "squad-detail.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 
