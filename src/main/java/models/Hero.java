@@ -87,7 +87,7 @@ public class Hero {
         this.weakness = newWeakness;
     }
 
-    public static void deleteHero(int searchID) {
+    public static void removeHero(int searchID) {
         Hero heroToDelete = searchHero(searchID);
         if (!heroToDelete.getSquadList().equals("")) {
             Squad currentSquad = null;
