@@ -60,7 +60,6 @@ public class App {
             return new ModelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get hero details route
         post("/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
@@ -68,7 +67,6 @@ public class App {
             String specialPower = request.queryParams("powers");
             String weakness = request.queryParams("weakness");
             String gender = request.queryParams("gender");
-
             Hero newHero = new Hero(name, age, specialPower, weakness,gender);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -118,7 +116,6 @@ public class App {
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: each hero detail page
         get("/heroes/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int itemId = Integer.parseInt(request.params(":id"));

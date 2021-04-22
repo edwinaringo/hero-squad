@@ -9,7 +9,7 @@
     <h2 class="text-center"> Build your hero</h2>
     <div id="newHeroForm">
     {{#if updateHero}}
-        <form action="/heroes/{{updateHero.heroID}}/update" method="post">
+        <form action="/heroes/new{{updateHero.heroID}}/update" method="post">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" class="form-control">
