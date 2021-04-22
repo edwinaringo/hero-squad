@@ -1,0 +1,40 @@
+{{#partial "navbar"}}
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/heroes/new">Build a Hero</a></li>
+    <li class="nav-item"><a class="nav-link" href="/squads/new">Form a Squad</a></li>
+    <li class="nav-item"><a class="nav-link" href="/heroes">View Progress</a></li>
+{{/partial}}
+
+
+{{#partial "content"}}
+    <div class="text-center">
+        <h2><u>{{hero.name}}</u></h2>
+        {{#if hero.squadList}}
+            <h6><b>Squad: </b>{{hero.squadList}}</h6>
+        {{else}}
+            <h6><b>Squad: </b>None</h6>
+        {{/if}}
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Age</h5>
+                <p>{{hero.age}}</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Powers</h5>
+                <p>{{hero.specialPower}}</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Weakness</h5>
+                <p>{{hero.weakness}}</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Gender</h5>
+                <p>{{hero.gender}}</p>
+            </div>
+
+        </div>
+        <a class="btn btn-outline-primary" href="/heroes/{{hero.heroID}}/update">Update Info</a>
+        <a class="btn btn-outline-danger" href="/heroes/{{hero.heroID}}/remove">Delete Hero</a>
+    </div>
+{{/partial}}
+{{> layout.hbs}}
