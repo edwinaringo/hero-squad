@@ -8,8 +8,8 @@
 * Heroku CLI
 * Bootstrap
 ## Contact 
+tedaringo628@gmail.com
 ## Link to live site
 https://hero-sqwa.herokuapp.com/
-tedaringo628@gmail.com
 ## License 
 * MIT Licence 
