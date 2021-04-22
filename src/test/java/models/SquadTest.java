@@ -51,6 +51,16 @@ class SquadTest {
         assertEquals(2, squad.getMembers().size());
     }
 
+    @Test
+    public void deleteHeroMember() {
+        Hero hero1 = setupNewHero();
+        Hero hero2 = setupHero2();
+        Squad squad = setupNewSquad(hero1);
+        squad.addMembers(hero2);
+        squad.removeMember(hero1);
+        assertFalse(squad.getMembers().contains(hero1));
+    }
+
     @AfterEach
     void tearDown() throws Exception{
     }
