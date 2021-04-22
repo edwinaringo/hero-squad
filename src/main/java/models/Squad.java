@@ -90,6 +90,10 @@ public class Squad {
         Squad.squadList.remove(this);
     }
 
+    public static Squad findSquad(int searchId) {
+        return squadList.get(searchId - 1);
+    }
+
     public List<Hero> getMembers() {
         return heroMembers;
     }
