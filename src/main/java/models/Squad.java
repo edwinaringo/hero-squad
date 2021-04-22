@@ -29,6 +29,7 @@ public class Squad {
         }
     }
 
+
     public String getName() {
         return squadName;
     }
@@ -82,6 +83,43 @@ public class Squad {
             selfDelete();
         }
     }
+
+    public void changeHeroSquad(Hero hero, Squad newSquad) {
+        if (heroMembers.size() >= 3) {
+            isSquadFull = true;
+        } else {
+            Squad currentSquad = null;
+            for (Squad squad : squadList) {
+                if (hero.getSquadList().equalsIgnoreCase(squad.squadName)) {
+                    currentSquad = squad;
+                    break;
+                }
+            }
+
+            for (Squad squad : squadList) {
+                if (newSquad.squadName.equalsIgnoreCase(squad.squadName)) {
+                    if (!hero.getSquadList().equalsIgnoreCase("")) {
+                        //IF HERO EXISTED IN PREVIOUS SQUAD
+                        //noinspection ConstantConditions
+                        currentSquad.heroMembers.remove(hero);
+                        newSquad.heroMembers.add(hero);
+                        hero.updateSquad(newSquad.squadName);
+                        break;
+                    } else {
+                        //IF HERO HAD NO ALLIANCE
+                        newSquad.heroMembers.add(hero);
+                        hero.setSquadAlliance(newSquad.squadName);
+                    }
+                } else {
+                    System.out.println("Squad Doesn't exist");
+                }
+            }
+        }
+    }
+    public static Squad findSquad(int searchId) {
+        return squadList.get(searchId - 1);
+    }
+
 
     private void selfDelete(){
         Squad.squadList.remove(this);
