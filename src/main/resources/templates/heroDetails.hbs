@@ -9,20 +9,33 @@
 {{#partial "content"}}
     <div class="text-center">
         <h2><u>{{hero.name}}</u></h2>
+        {{#if hero.squadAlliance}}
+            <h6><b>Squad: </b>{{hero.squadAlliance}}</h6>
+        {{else}}
+            <h6><b>Squad: </b>None</h6>
+        {{/if}}
         <div class="row">
             <div class="col-md-4">
                 <h5>Age</h5>
                 <p>{{hero.age}}</p>
             </div>
             <div class="col-md-4">
-                <h5>Strength</h5>
-                <p>{{hero.power}}</p>
+                <h5>Powers</h5>
+                <p>{{hero.specialPower}}</p>
             </div>
             <div class="col-md-4">
                 <h5>Weakness</h5>
                 <p>{{hero.weakness}}</p>
             </div>
+            <div class="col-md-4">
+                <h5>Gender</h5>
+                <p>{{hero.gender}}</p>
+            </div>
         </div>
+        <a class="btn btn-outline-primary" href="/heroes/{{hero.heroID}}/update">Update your Hero</a>
+        <a class="btn btn-outline-danger" href="/heroes/{{hero.heroID}}/remove">Terminate Hero</a>
     </div>
+   
+
 {{/partial}}
 {{> layout.hbs}}
