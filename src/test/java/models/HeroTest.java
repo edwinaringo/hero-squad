@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HeroTest {
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception{
     }
 
     @Test
@@ -91,7 +91,7 @@ class HeroTest {
     }
 
     @AfterEach
-    void tearDown() {
-        Hero.clearHeroList();
+    void tearDown() throws Exception{
+        Hero.clearAllHeroes();
     }
 }

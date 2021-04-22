@@ -46,7 +46,7 @@ public class Hero {
         this.squadList = squadList;
     }
 
-    public static void clearHeroList(){
+    public static void clearAllHeroes(){
         allHeroes.clear();
     }
 
@@ -89,7 +89,7 @@ public class Hero {
         this.age = newAge;
     }
 
-    public void updatePower(String newSpecialPower) {
+    public void updateSpecialPower(String newSpecialPower) {
         this.specialPower = newSpecialPower;
     }
 
