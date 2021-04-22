@@ -1,0 +1,36 @@
+{{#partial "navbar"}}
+    <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+i class="nav-item"><a class="nav-link" href="/squad/new">Form your Alliance</a></li>
+    <li class="nav-item"><a class="nav-link" href="/heroes">Build new hero</a></li>
+    <li class="nav-item"><a class="nav-link" href="/heroes/new">Form new squad</a></li>
+    <li class="nav-item"><a class="nav-link" href="/squad/new">View your progress</a></li>
+{{/partial}}
+
+{{#partial "content"}}
+    {{#if uniqueId}}
+        <div id="returning-agent">
+            <h2 class="text-center"><u>Let's get it: {{uniqueId}}</u></h2>
+
+            <h4><b>Here's an overview of your registry</b></h4>
+            <div class="row">
+                <div class="col-md-3"><p>Available Heroes: {{totalHeroes}}</p></div>
+                <div class="col-md-3"><p>Heroes with squads: {{squadfullHeroes}}</p></div>
+                <div class="col-md-3"><p>Heroes without squads: {{squadlessHeroes}}</p></div>
+                <div class="col-md-3"><p>Available Squads: {{totalSquads}}</p></div>
+            </div>
+    {{else}}
+            <div id="session-form">
+                <h3 class="text-center">Please Sign in</h3>
+                <form action="/success" method="post">
+                    <label for="uniqueId">Name</label>
+                    <input type="text" id="uniqueId" name="uniqueId" class="form-control"
+                           placeholder="What is your search name?">
+                    <button class="btn btn-outline-secondary">Save</button>
+                </form>
+            </div>
+        </div>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
