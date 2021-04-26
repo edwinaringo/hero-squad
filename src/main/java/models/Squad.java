@@ -16,7 +16,6 @@ public class Squad {
     public Squad(String name, String cause, Hero hero) {
         this.squadName = name.trim();
         this.cause = cause.trim();
-        this.newHero =  hero;
         crossCheckHero(hero.getHeroID());
 
         if(isAddedHero) {

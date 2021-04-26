@@ -87,7 +87,7 @@ class HeroTest {
         Hero thirdHero = new Hero("Avatar", 10, "Bending", "Emotions","Male");
         Hero.removeHero(anotherNewHero.getHeroID());
         assertFalse(Hero.getAllHeroes().contains(anotherNewHero));
-        assertEquals(5, Hero.getAllHeroes().get(1).getHeroID());
+        assertEquals(3, Hero.getAllHeroes().get(1).getHeroID());
     }
 
     @AfterEach
