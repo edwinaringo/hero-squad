@@ -1,8 +1,10 @@
 {{#partial "navbar"}}
-    <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="/heroes/new">Build new hero</a></li>
-    <li class="nav-item"><a class="nav-link" href="/squads/new">Form new squad</a></li>
-    <li class="nav-item"><a class="nav-link" href="/heroes">View your progress</a></li>
+    <div class ="navbar">
+        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/heroes/new">Build new hero</a></li>
+        <li class="nav-item"><a class="nav-link" href="/squads/new">Form new squad</a></li>
+        <li class="nav-item"><a class="nav-link" href="/heroes">View your progress</a></li>
+    </div>
 {{/partial}}
 
 {{#partial "content"}}
@@ -10,7 +12,6 @@
         <div id="returning-agent">
             <h2 class="text-center"><u>Let's get it: {{uniqueId}}</u></h2>
 
-            <h4><b>Here's an overview of your registry</b></h4>
             <div class="row">
                 <div class="col-md-3"><p>Available Heroes: {{totalHeroes}}</p></div>
                 <div class="col-md-3"><p>Heroes with squads: {{squadfullHeroes}}</p></div>
@@ -24,7 +25,9 @@
                     <label for="uniqueId">Name</label>
                     <input type="text" id="uniqueId" name="uniqueId" class="form-control"
                            placeholder="What is your search name?">
+                    <div class="button">
                     <button class="btn btn-outline-secondary">Save</button>
+                    </div>
                 </form>
             </div>
         </div>
