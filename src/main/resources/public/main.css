@@ -2,5 +2,24 @@ body{
     background: url("/images/avengers.jpg");
     color: black;
     background-size: cover;
+    font-family: Poppins;
+    font-size: 20px;
 
+}
+.nav-item{
+    color: black;
+    font-weight: bold;
+}
+.nav-link{
+    color: white;
+}
+.btn btn-outline-secondary{
+    background-color: red;
+}
+.jumbotron{
+    background-color: red;
+    font-family: Acme;
+    background: url("/images/heroTheme.jpg");
+    background-size: cover;
+    color: red;
 }

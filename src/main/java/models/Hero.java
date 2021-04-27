@@ -14,11 +14,11 @@ public class Hero {
     private static boolean same = false;
 
     public Hero(String name, int age, String specialPower, String weakness, String gender) {
-        this.name = name.trim();
+        this.name = name;
         this.age = age;
-        this.specialPower = specialPower.trim();
-        this.weakness = weakness.trim();
-        this.gender = gender.trim();
+        this.specialPower = specialPower;
+        this.weakness = weakness;
+        this.gender = gender;
         findSameHero(this);
 
         if (same) {
